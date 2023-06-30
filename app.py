@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import ddddocr
 import base64
+import uvicorn
 
 app = FastAPI()
 app.add_middleware(
@@ -27,3 +28,7 @@ async def get_captcha(req: GetCaptchaRequest):
         return {"result": ocr.classification(base64.b64decode(req.img))}
     except Exception:
         raise HTTPException(status_code=400, detail="invalid image")
+
+
+if __name__ == "__main__":
+    uvicorn.run(app="app:app")
