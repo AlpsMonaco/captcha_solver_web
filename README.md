@@ -3,7 +3,7 @@
 
 ## 接口
 Endpoint: /captcha  
-Method： POST
+Method： POST  
 Content-Type: application/json  
 Body Example:
 ```json
@@ -22,6 +22,6 @@ img: base64编码后的二进制图片数据
 ```
 
 ## 附录
-您可以访问 127.0.0.1:8000/docs
+您可以访问 127.0.0.1:8000/docs  
 访问接口文档并测试
 
