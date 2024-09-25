@@ -8,7 +8,7 @@ a = Analysis(
     ['app.py'],
     pathex=[],
     binaries=[],
-    datas=[('D:\github.com\captcha_solver_web\.venv\Lib\site-packages\ddddocr\common.onnx','ddddocr')],
+    datas=[('venv/Lib/site-packages/ddddocr/common.onnx','ddddocr'),('venv/Lib/site-packages/ddddocr/common_old.onnx','ddddocr')],
     hiddenimports=[
     'uvicorn.logging',
     'uvicorn.loops',
@@ -40,7 +40,7 @@ exe = EXE(
     a.zipfiles,
     a.datas,
     [],
-    name='app',
+    name='captcha_resolver',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

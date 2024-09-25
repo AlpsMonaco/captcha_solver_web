@@ -1,28 +1,26 @@
 # captcha_solver_web
 
-[README](README.md) | [中文文档](README_zh_CN.md)
+一个简单的验证码识别 HTTP 服务器。  
+你可以从[release page](https://github.com/AlpsMonaco/captcha_solver_web/releases) 下载 Windows 版本。  
+对于 Linux/Mac OS 系统，需要安装 python 运行或自行打包。
 
-A simple HTTP server for solving captchas.  
-You can download the Windows version from the [release page](https://github.com/AlpsMonaco/captcha_solver_web/releases).  
-For Linux/Mac OS, you'll need to have `python` installed to run or package the server yourself.
+## API 参考
 
-## API Reference
+### 接口
 
-### Endpoint
-
-- URL: `/captcha`
-- Method： `POST`
-- Content-Type: `application/json`
+- 路径: `/captcha`
+- 请求方法: `POST`
+- 内容类型: `application/json`
 
 ### Request Body
 
-| Parameter | Description                         |
-| --------- | ----------------------------------- |
-| img       | Base64-encoded captcha image string |
+| 参数 | 描述                    |
+| ---- | ----------------------- |
+| img  | Base64 编码的验证码图片 |
 
-### Example
+### 示例
 
-For a captcha image, encode it in base64 and call the API:  
+对于如下的验证码图片，先将其编码为 base64 后调用 API。
 ![captcha](w8.png "captcha")
 
 ```bash
@@ -30,21 +28,21 @@ curl http://127.0.0.1:8000/captcha -XPOST -H "Content-Type: application/json" \
 --data '{"img": "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"}'
 ```
 
-**Response**:
+**返回结果:**:
 
 ```bash
 >> {"result":"w8"}
 ```
 
-## Project Setup
+## 项目设置
 
-For Windows users,you could simply run the binary from [release page](https://github.com/AlpsMonaco/captcha_solver_web/releases).
+windows用户可以直接从[release page](https://github.com/AlpsMonaco/captcha_solver_web/releases)下载预编译好的二进制，然后直接运行。
 
 ```powershell
 .\captcha_resolver.exe --host 127.0.0.1 --port 8000
 ```
 
-### Initialize
+###  初始化
 
 #### Windows
 
@@ -62,7 +60,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### Run the Server
+### 运行服务器
 
 #### Windows
 
